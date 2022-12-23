@@ -22,6 +22,7 @@ export function Form({
       return setError("Only one space allowed!!!");
     }
     setInput(e.target.value);
+
     setError("");
   }
 
@@ -65,14 +66,15 @@ export function Form({
         <input
           value={input}
           onChange={handleChange}
+          placeholder={"John Doe"}
           maxLength={26}
           type="text"
-          className="h-12 rounded-lg border-[0.1rem] border-secondaryDark text-xl outline-none focus:border-primaryLight md:text-2xl"
+          className="h-12 rounded-lg border-[0.1rem] border-secondaryDark p-4 text-xl outline-none placeholder:text-base focus:border-primaryLight md:text-2xl"
         />
         <span className="mt-1 text-errorColor">{error}</span>
 
         <button
-          className="mt-6 h-12 rounded-lg bg-primary text-white md:text-xl"
+          className="mt-6 h-12 rounded-lg bg-primary text-[1.1rem] text-white transition-all duration-300 md:text-xl lg:hover:bg-borderOutline lg:hover:text-[1.20rem]"
           type="submit"
           onClick={generateNumber}
         >
@@ -80,9 +82,10 @@ export function Form({
         </button>
 
         <button
-          className="mt-6 h-12 rounded-lg bg-primary text-white md:text-xl"
+          className="disabled:hover:none mt-6 h-12 rounded-lg bg-primary text-[1.1rem] text-white transition-all duration-300  disabled:cursor-not-allowed disabled:opacity-50 md:text-xl lg:hover:text-[1.20rem] lg:enabled:hover:bg-borderOutline"
           type="submit"
-          // onClick={() => setIsConformed(true)}
+          onClick={() => setIsConformed(true)}
+          disabled={!input}
         >
           Confirm
         </button>

@@ -10,9 +10,6 @@ export function BankCard({ input, cardInfo, setCardInfo }) {
       </span>
       <CardBack cardInfo={cardInfo} />
       <CardFront input={input} cardInfo={cardInfo} />
-      {/* <span className="my-4 hidden w-full text-center tracking-wider text-tertiary md:my-12 md:text-[1.6rem] lg:inline-block ">
-        Apply For New Credit Card
-      </span> */}
     </div>
   );
 }
