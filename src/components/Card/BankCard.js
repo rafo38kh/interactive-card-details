@@ -13,5 +13,3 @@ export function BankCard({ input, cardInfo, setCardInfo }) {
     </div>
   );
 }
-
-// export default BankCard;
