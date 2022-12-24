@@ -8,6 +8,7 @@ export function Form({
   setIsConformed,
 }) {
   const [error, setError] = useState("");
+  const [isGenerated, setIsGenerated] = useState(false);
 
   function handleChange(e) {
     const checkNameRegexp = /[^a-zA-Z\s]/gi;
@@ -46,6 +47,8 @@ export function Form({
   function generateNumber() {
     const numbers = Math.random().toFixed(16).split(".")[1];
     const cvvNumbers = Math.random().toFixed(3).split(".")[1];
+
+    setIsGenerated(true);
     setCardInfo((prevState) => ({
       ...prevState,
       cardNumber: formatCardNumber(numbers),
@@ -63,6 +66,7 @@ export function Form({
         >
           Cardholder Name
         </span>
+
         <input
           value={input}
           onChange={handleChange}
@@ -74,18 +78,19 @@ export function Form({
         <span className="mt-1 text-errorColor">{error}</span>
 
         <button
-          className="mt-6 h-12 rounded-lg bg-primary text-[1.1rem] text-white transition-all duration-300 md:text-xl lg:hover:bg-borderOutline lg:hover:text-[1.20rem]"
+          className="disabled:hover:none mt-6 h-12 rounded-lg bg-primary text-[1.1rem] text-white transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-50 md:text-xl lg:enabled:hover:bg-borderOutline lg:enabled:hover:text-[1.20rem]  "
           type="submit"
           onClick={generateNumber}
+          disabled={!input}
         >
           Generate card
         </button>
 
         <button
-          className="disabled:hover:none mt-6 h-12 rounded-lg bg-primary text-[1.1rem] text-white transition-all duration-300  disabled:cursor-not-allowed disabled:opacity-50 md:text-xl lg:hover:text-[1.20rem] lg:enabled:hover:bg-borderOutline"
+          className="disabled:hover:none mt-6 h-12 rounded-lg bg-primary text-[1.1rem] text-white transition-all duration-300  disabled:cursor-not-allowed disabled:opacity-50 md:text-xl lg:enabled:hover:bg-borderOutline lg:enabled:hover:text-[1.20rem]"
           type="submit"
           onClick={() => setIsConformed(true)}
-          disabled={!input}
+          disabled={!isGenerated}
         >
           Confirm
         </button>

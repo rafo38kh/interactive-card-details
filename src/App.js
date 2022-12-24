@@ -18,21 +18,27 @@ function App() {
 
   return (
     <div className="grid  min-h-screen grid-rows-[1fr_auto] bg-white bg-bgMobileImg bg-contain bg-no-repeat py-4 xl:bg-bgDesktopImg">
-      <span className="my-4 hidden w-full text-center tracking-wider text-primary md:my-12 md:text-[1.6rem] lg:inline-block ">
-        Apply For New Credit Card
-      </span>
-      <div className="mx-auto flex w-11/12 flex-col items-center gap-24 lg:justify-center lg:gap-40 xl:flex-row">
-        <BankCard input={input} cardInfo={cardInfo} setCardInfo={setCardInfo} />
-        {isConformed ? (
-          <Success />
-        ) : (
-          <Form
+      <div>
+        <span className="my-4 hidden w-full text-center tracking-wider text-primary  md:text-[1.6rem] lg:inline-block ">
+          Apply For New Credit Card
+        </span>
+        <div className="mx-auto flex w-11/12 flex-col items-center gap-24 md:gap-0  lg:justify-center lg:gap-40 xl:flex-row">
+          <BankCard
             input={input}
-            setInput={setInput}
+            cardInfo={cardInfo}
             setCardInfo={setCardInfo}
-            setIsConformed={setIsConformed}
           />
-        )}
+          {isConformed ? (
+            <Success />
+          ) : (
+            <Form
+              input={input}
+              setInput={setInput}
+              setCardInfo={setCardInfo}
+              setIsConformed={setIsConformed}
+            />
+          )}
+        </div>
       </div>
       <Footer />
     </div>
