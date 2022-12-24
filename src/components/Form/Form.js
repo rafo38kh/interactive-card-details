@@ -59,7 +59,7 @@ export function Form({
 
   return (
     <div className="mt-16 w-full max-w-[25rem] md:mt-32">
-      <label className=" flex flex-col">
+      <form action="#" className=" flex flex-col">
         <span
           className="mb-2 text-xs  uppercase tracking-widest
          text-primary"
@@ -78,8 +78,8 @@ export function Form({
         <span className="mt-1 text-errorColor">{error}</span>
 
         <button
+          type="button"
           className="disabled:hover:none mt-6 h-12 rounded-lg bg-primary text-[1.1rem] text-white transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-50 md:text-xl lg:enabled:hover:bg-borderOutline lg:enabled:hover:text-[1.20rem]  "
-          type="submit"
           onClick={generateNumber}
           disabled={!input}
         >
@@ -87,14 +87,14 @@ export function Form({
         </button>
 
         <button
+          type="button"
           className="disabled:hover:none mt-6 h-12 rounded-lg bg-primary text-[1.1rem] text-white transition-all duration-300  disabled:cursor-not-allowed disabled:opacity-50 md:text-xl lg:enabled:hover:bg-borderOutline lg:enabled:hover:text-[1.20rem]"
-          type="submit"
           onClick={() => setIsConformed(true)}
           disabled={!isGenerated}
         >
           Confirm
         </button>
-      </label>
+      </form>
     </div>
   );
 }

@@ -18,7 +18,7 @@ function App() {
 
   return (
     <div className="grid  min-h-screen grid-rows-[1fr_auto] bg-white bg-bgMobileImg bg-contain bg-no-repeat py-4 xl:bg-bgDesktopImg">
-      <div>
+      <main>
         <span className="my-4 hidden w-full text-center tracking-wider text-primary  md:text-[1.6rem] lg:inline-block ">
           Apply For New Credit Card
         </span>
@@ -39,7 +39,7 @@ function App() {
             />
           )}
         </div>
-      </div>
+      </main>
       <Footer />
     </div>
   );
